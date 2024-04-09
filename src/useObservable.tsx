@@ -11,9 +11,10 @@ export function useObservable<T>(
     useEffect(() => {
         const observer = {
             handler: (newValue: T) => {
-                setValue(newValue)
                 if (value === newValue) {
                     forceUpdate()
+                } else { // If setValue is applied before forceUpdate strange things happens with hooks
+                    setValue(newValue)
                 }
             }
         }
