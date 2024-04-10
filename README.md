@@ -9,10 +9,10 @@ React hook for reacting to changes in @nbottarini/observable properties
 
 Npm:
 ```
-$ npm install --save @nbottarini/observable @nbottarini/react-observable
+$ npm install --save @nbottarini/react-observable
 ```
 
 Yarn:
 ```
-$ yarn add @nbottarini/observable @nbottarini/react-observable
+$ yarn add @nbottarini/react-observable
 ```
