@@ -1,6 +1,6 @@
 {
   "name": "@nbottarini/react-observable",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "React hook for reacting to changes in @nbottarini/observable properties",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -27,8 +27,10 @@
     "lint": "eslint . && tsc --noEmit",
     "test": "jest"
   },
+  "dependencies": {
+    "@nbottarini/observable": "^0.3.0"
+  },
   "peerDependencies": {
-    "@nbottarini/observable": "*",
     "react": "*"
   },
   "devDependencies": {
@@ -36,7 +38,6 @@
     "@babel/preset-env": "^7.22.10",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
-    "@nbottarini/observable": "^0.3.0",
     "@rollup/plugin-commonjs": "^25.0.3",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-terser": "^0.4.3",
