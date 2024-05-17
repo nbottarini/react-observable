@@ -1,6 +1,6 @@
 {
   "name": "@nbottarini/react-observable",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "React hook for reacting to changes in @nbottarini/observable properties",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -28,7 +28,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@nbottarini/observable": "^0.3.0"
+    "@nbottarini/observable": "^0.4.1"
   },
   "peerDependencies": {
     "react": "*"

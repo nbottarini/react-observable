@@ -1,10 +1,7 @@
 import { useEffect, useReducer, useState } from 'react'
 import { Observable } from '@nbottarini/observable'
 
-export function useObservable<T>(
-    observable: Observable<T>,
-    initialValue: T,
-): T {
+export function useObservable<T>(observable: Observable<T>, initialValue: T): T {
     const [value, setValue] = useState(initialValue)
     const forceUpdate = useReducer(() => ({}), {})[1] as () => void
 
