@@ -1,6 +1,7 @@
-import { useObservable } from './useObservable'
+import { useObserve } from './useObserve'
 import { ObservableProperty } from '@nbottarini/observable'
 
 export function useObservableProperty<T>(property: ObservableProperty<T>): T {
-    return useObservable(property.changed, property.value)
+    useObserve(property.changed)
+    return property.value
 }

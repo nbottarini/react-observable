@@ -1,17 +1,19 @@
-import { useEffect, useReducer, useState } from 'react'
+import { useEffect, useReducer, useRef } from 'react'
 import { Observable } from '@nbottarini/observable'
 
-export function useObservable<T>(observable: Observable<T>, initialValue: T): T {
-    const [value, setValue] = useState(initialValue)
+export function useObserve<T>(
+    observable: Observable<T>,
+    filterEvents?: (event: T) => boolean,
+): T {
     const forceUpdate = useReducer(() => ({}), {})[1] as () => void
+    const lastValue = useRef<T>()
 
     useEffect(() => {
         const observer = {
             handler: (newValue: T) => {
-                if (value === newValue) {
+                if (!filterEvents || filterEvents(newValue)) {
+                    lastValue.current = newValue
                     forceUpdate()
-                } else { // If setValue is applied before forceUpdate strange things happens with hooks
-                    setValue(newValue)
                 }
             }
         }
@@ -20,5 +22,5 @@ export function useObservable<T>(observable: Observable<T>, initialValue: T): T 
             observable.unsubscribe(observer)
         }
     }, [observable])
-    return value
+    return lastValue.current
 }
