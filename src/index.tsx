@@ -1,2 +1,2 @@
 export * from './useObserve'
-export * from './useObservableProperty'
+export * from './useObservableValue'

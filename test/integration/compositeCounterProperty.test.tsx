@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import React, { useMemo } from 'react'
-import { computed, property } from '@nbottarini/observable'
-import { useObservableProperty } from '../../src/useObservableProperty'
+import { observableComputed, observableValue } from '@nbottarini/observable'
+import { useObservableValue } from '../../src/useObservableValue'
 
 it('all values starts at 0', () => {
     render(<CounterView />)
@@ -40,11 +40,11 @@ it('successive clicks to buttons increments counters and calculates sum', () => 
 })
 
 const CounterView: React.FC = () => {
-    const counter1$ = useMemo(() => property(0), [])
-    const counter2$ = useMemo(() => property(0), [])
-    const computedSum$ = useMemo(() => computed((c1, c2) => c1 + c2, counter1$, counter2$), [])
+    const counter1$ = useMemo(() => observableValue(0), [])
+    const counter2$ = useMemo(() => observableValue(0), [])
+    const computedSum$ = useMemo(() => observableComputed((c1, c2) => c1 + c2, counter1$, counter2$), [])
 
-    const observedValue = useObservableProperty(computedSum$)
+    const observedValue = useObservableValue(computedSum$)
     return (
         <div>
             <span id="counter1">Counter1: {counter1$.value}</span>
