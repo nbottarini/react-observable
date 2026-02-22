@@ -3,7 +3,7 @@ import { Observable } from '@nbottarini/observable'
 
 export function useObserve<T>(
     observable: Observable<T>,
-    filterEvents?: (event: T) => boolean,
+    filter?: (value: T) => boolean,
 ): T {
     const forceUpdate = useReducer(() => ({}), {})[1] as () => void
     const lastValue = useRef<T>()
@@ -11,7 +11,7 @@ export function useObserve<T>(
     useEffect(() => {
         const observer = {
             handler: (newValue: T) => {
-                if (!filterEvents || filterEvents(newValue)) {
+                if (!filter || filter(newValue)) {
                     lastValue.current = newValue
                     forceUpdate()
                 }
