@@ -1838,10 +1838,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nbottarini/observable@npm:^0.9.0":
-  version: 0.9.0
-  resolution: "@nbottarini/observable@npm:0.9.0"
-  checksum: 086194df9291a65f8c5f3e642bbe2a1731e93f28caa93c8df57371d5e863f8517794de12f43a09de5cfd2681b4862d02cede987b9e7b1435c0c7aa47c3e050dd
+"@nbottarini/observable@npm:^0.9.1":
+  version: 0.9.1
+  resolution: "@nbottarini/observable@npm:0.9.1"
+  checksum: d246c82e99919b4068958e895469e8cdb8fc5b50318442d389df27396b46042d162b2a94412ee0d211ee261233dd3f803818f620991e719e4098fb369773227e
   languageName: node
   linkType: hard
 
@@ -1853,7 +1853,7 @@ __metadata:
     "@babel/preset-env": ^7.22.10
     "@babel/preset-react": ^7.22.5
     "@babel/preset-typescript": ^7.22.5
-    "@nbottarini/observable": ^0.9.0
+    "@nbottarini/observable": ^0.9.1
     "@rollup/plugin-commonjs": ^25.0.3
     "@rollup/plugin-node-resolve": ^15.1.0
     "@rollup/plugin-terser": ^0.4.3
