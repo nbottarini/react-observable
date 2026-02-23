@@ -2,7 +2,7 @@ import { useEffect, useReducer, useRef } from 'react'
 import { Observable } from '@nbottarini/observable'
 
 export function useObserve<T>(
-    observable: Observable<T>,
+    observable?: Observable<T>,
     filter?: (value: T) => boolean,
 ): T {
     const forceUpdate = useReducer(() => ({}), {})[1] as () => void
@@ -17,9 +17,9 @@ export function useObserve<T>(
                 }
             }
         }
-        observable.subscribe(observer, observer.handler)
+        observable?.subscribe(observer, observer.handler)
         return () => {
-            observable.unsubscribe(observer)
+            observable?.unsubscribe(observer)
         }
     }, [observable])
     return lastValue.current
