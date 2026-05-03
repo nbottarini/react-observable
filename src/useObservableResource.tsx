@@ -53,23 +53,23 @@ export function useObservableResource<T>(
     const subscribe = useCallback((notify: () => void) => {
         if (!resource) return () => {}
         const owner = {}
-        resource.data.subscribe(owner, notify)
-        resource.status.subscribe(owner, notify)
-        resource.error.subscribe(owner, notify)
-        resource.isRefreshing.subscribe(owner, notify)
+        resource.data$.subscribe(owner, notify)
+        resource.status$.subscribe(owner, notify)
+        resource.error$.subscribe(owner, notify)
+        resource.isRefreshing$.subscribe(owner, notify)
         return () => {
-            resource.data.unsubscribe(owner)
-            resource.status.unsubscribe(owner)
-            resource.error.unsubscribe(owner)
-            resource.isRefreshing.unsubscribe(owner)
+            resource.data$.unsubscribe(owner)
+            resource.status$.unsubscribe(owner)
+            resource.error$.unsubscribe(owner)
+            resource.isRefreshing$.unsubscribe(owner)
         }
     }, [resource])
 
     const getSnapshot = (): UseObservableResourceResult<T> => {
-        const data = resource?.data.value
-        const status: ResourceStatus = resource?.status.value ?? 'uninitialized'
-        const error = resource?.error.value ?? null
-        const isRefreshing = resource?.isRefreshing.value ?? false
+        const data = resource?.data
+        const status: ResourceStatus = resource?.status ?? 'uninitialized'
+        const error = resource?.error ?? null
+        const isRefreshing = resource?.isRefreshing ?? false
 
         const prev = snapshotRef.current
         if (
