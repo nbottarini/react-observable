@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import React, { useMemo } from 'react'
 import { observableComputed, observableValue } from '@nbottarini/observable'
-import { useObservableValue } from '../../src/useObservableValue'
+import { useObservableValue } from '../../../src/useObservableValue'
 
 it('all values starts at 0', () => {
     render(<CounterView />)

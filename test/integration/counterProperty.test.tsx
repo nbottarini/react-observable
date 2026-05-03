@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import React from 'react'
-import { ObservableMutableValue, observableValue } from '@nbottarini/observable'
+import { MutableObservableValue, observableValue } from '@nbottarini/observable'
 import { useObservableValue } from '../../src/useObservableValue'
 
 it('counter starts at 0', () => {
@@ -31,7 +31,7 @@ it('successive clicks to button increments counter by 1', () => {
     expect(document.getElementById('observed-value').innerHTML).toEqual('Observed value: 3')
 })
 
-const CounterView: React.FC<{counter: ObservableMutableValue<number>}> = ({ counter }) => {
+const CounterView: React.FC<{counter: MutableObservableValue<number>}> = ({ counter }) => {
     const observedValue = useObservableValue(counter)
     return (
         <div>

@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import React from 'react'
-import { useObserve } from '../../src'
+import { useObserve } from '../../../src'
 import { observable } from '@nbottarini/observable'
 
 it('counter starts at 0', () => {
