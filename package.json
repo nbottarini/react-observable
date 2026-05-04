@@ -1,6 +1,6 @@
 {
   "name": "@nbottarini/react-observable",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0-rc.4",
   "description": "React hook for reacting to changes in @nbottarini/observable properties",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
